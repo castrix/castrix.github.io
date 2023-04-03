@@ -79,3 +79,7 @@ a:hover {
   .clickable:hover::after {
     visibility: visible;
   }
+
+  ::-webkit-scrollbar {
+    display: none;
+}

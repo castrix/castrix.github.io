@@ -4,6 +4,7 @@ import myPhoto from '../../assets/myPhoto.PNG'
 import photoOverlay from '../../assets/photoOverlay.svg'
 import './index.css'
 import { ReactSVG } from 'react-svg'
+import { CV_URL } from '../Nav/constants'
 
 export const Welcome = () => {
   const ref = React.createRef<HTMLSpanElement>()
@@ -124,7 +125,7 @@ export const Welcome = () => {
           className={`text-vue whitespace-pre-line w-full ${CURSOR_CLASS_NAME}`}
         />
         <a
-          href="https://docs.google.com/document/d/1WKayGDe8uuSrcC3yx1zQ2EgY3svRJ6ZLPRfJ6jTqgo8/edit?usp=sharing"
+          href={CV_URL}
           target="_blank"
           className="pointer-events-auto hover:underline text-vue clickable"
         >

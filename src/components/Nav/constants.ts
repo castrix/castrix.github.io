@@ -1,12 +1,12 @@
 import { toast } from "react-toastify"
 import { scrollToView } from "../../utils/scroll"
-import { openURL } from "../../utils/url"
+import { focusToCommand } from "../../utils/input";
 
 export const menus = [
   {
     label: 'about()',
     target: '#about',
-    action: () => scrollToView('#about')
+    action: () => { focusToCommand(); scrollToView('#about') }
   },
   {
     label: 'projects()',

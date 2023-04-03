@@ -13,7 +13,7 @@ export const IFButton: React.FC<Props> = (props) => {
     green: 'bg-green-500 hover:bg-green-400 border-green-700 hover:border-green-500',
   }
   return (
-    <button onClick={props.onClick} className={`outline-none text-white font-bold py-2 px-4 border-b-4 rounded focus:border-none ${colors[props.color]}`}>
+    <button onClick={props.onClick} className={`outline-none text-white font-bold py-2 px-4 border-b-4 rounded transition-all focus:border-0 ${colors[props.color]}`}>
       {props.children}
     </button>
   )

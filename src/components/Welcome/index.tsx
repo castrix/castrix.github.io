@@ -44,7 +44,7 @@ export const Welcome = () => {
   return (
     <section
       id="welcome"
-      className="relative bg-red h-screen flex items-center pointer-events-none"
+      className="relative bg-red h-d-screen flex items-center pointer-events-none"
     >
       <div className="flex flex-wrap w-1/2 gap-5 pl-9 text-xl">
         <TypeAnimation
@@ -142,7 +142,7 @@ export const Welcome = () => {
           />
         </a>
       </div>
-      <div className='relative h-screen portrait'>
+      <div className='relative h-d-screen portrait'>
         <span
           className="opacity-10 text-black absolute top-0 font-extrabold nickname"
           style={{ fontSize: '400px' }}
@@ -150,7 +150,7 @@ export const Welcome = () => {
         >
           SAN
         </span>
-        <div className="relative overflow-hidden h-screen portrait">
+        <div className="relative overflow-hidden h-d-screen portrait">
           <img src={myPhoto} alt="Ihsan Fajar Ramadhan" ref={photoRef} />
           <svg
             className="absolute top-0"

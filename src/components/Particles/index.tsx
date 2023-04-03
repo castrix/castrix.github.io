@@ -22,7 +22,7 @@ export const IFParticles = () => {
   )
 
   return (
-    <div className="absolute top-0 left-0 w-screen h-screen">
+    <div className="absolute top-0 left-0 w-screen h-d-screen">
       <Particles
         id="tsparticles"
         init={particlesInit}
@@ -31,6 +31,7 @@ export const IFParticles = () => {
           fullScreen: {
             enable: false,
           },
+          fpsLimit: 30,
           particles: {
             number: {
               value: 150,

@@ -4,6 +4,7 @@ import { toast } from 'react-toastify'
 import { CV_URL, menus } from '../Nav/constants'
 import { scrollToView } from '../../utils/scroll'
 import { openURL } from '../../utils/url'
+import { focusToCommand } from '../../utils/input'
 
 export const Command = () => {
   const [commandValue, setCommandValue] = React.useState('')
@@ -61,7 +62,7 @@ export const Command = () => {
   ]
 
   React.useEffect(() => {
-    document.getElementsByTagName('input')[0].focus()
+    focusToCommand()
   }, [])
 
   return (
@@ -77,14 +78,14 @@ export const Command = () => {
           className="relative flex-grow bg-transparent text-function outline-none"
           onBlur={() =>
             setTimeout(
-              () => document.getElementsByTagName('input')[0].focus(),
-              1000
+              () => focusToCommand(),
+              150
             )
           }
         />
         <div className="flex gap-5 font-bold text-xs pointer-events-none">
           {tools.map((tool) => (
-            <span className={tool.color}>{tool.label}</span>
+            <span key={tool.label} className={tool.color}>{tool.label}</span>
           ))}
         </div>
       </div>

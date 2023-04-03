@@ -37,7 +37,7 @@ export const Modal = (props: Props) => {
   return (
     <div
       ref={modalRef}
-      className={`fixed top-0 left-0 z-50 w-screen h-screen bg-black transition-all border border- border-secondary rounded-md scale-90 opacity-0 pointer-events-none ${
+      className={`fixed top-0 left-0 z-50 w-screen h-d-screen bg-black transition-all border border- border-secondary rounded-md scale-90 opacity-0 pointer-events-none ${
         !props.isOpen && 'hidden'
       }`}
     >

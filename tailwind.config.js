@@ -14,6 +14,9 @@ export default {
         vue: "#68AC77",
         default: "#363636",
         string: "#FF5C00"
+      },
+      height: {
+        ["d-screen"]: "100dvh"
       }
     },
   },

@@ -21,7 +21,7 @@ export const About = () => {
   return (
     <section
       id={menus[0].target}
-      className="w-full h-screen bg-black flex items-center flex-wrap"
+      className="w-full h-d-screen bg-black flex items-center flex-wrap"
     >
       <div className="w-1/2">
         <AbouIllustration />
@@ -88,12 +88,13 @@ export const About = () => {
           </span>
         </div>
         <VerticalTimeline className="mt-5">
-          {timeline.map((item) => (
+          {timeline.map((item, index) => (
             <VerticalTimelineElement
+              key={index}
               className="vertical-timeline-element--work"
-              contentStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
+              contentStyle={{ background: index === 0 ? '#182930' : '#454545', color: '#fff' }}
               contentArrowStyle={{
-                borderRight: '7px solid  rgb(33, 150, 243)',
+                borderRight: `7px solid ${index === 0 ? '#182930' : '#454545'}`,
               }}
               date={item.date}
               iconStyle={{

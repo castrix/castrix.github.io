@@ -1,0 +1,29 @@
+.portrait img {
+  /* -webkit-filter: contrast(0) sepia(100%) hue-rotate(190deg) saturate(2000%) brightness(100%); */
+  filter: grayscale(100%) brightness(0);
+  /* pointer-events: auto; */
+  transition: all ease 1s;
+  position: relative;
+  z-index: 2;
+}
+
+.portrait .nickname {
+  transition: all ease 1.2s;
+}
+
+.portrait .nickname.move {
+  transform: translateX(-600px);
+}
+
+.portrait img.show {
+  -webkit-filter: none;
+  filter: none;
+}
+
+.portrait path {
+  pointer-events: auto;
+}
+
+.portrait svg {
+  left: 60px;
+}

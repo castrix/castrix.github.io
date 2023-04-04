@@ -4,18 +4,29 @@ interface Props {
   isOpen: boolean
   onClose: () => void
   children: React.ReactNode
+  className?: string
+  size?: 'small' | 'full'
 }
 
 export const Modal = (props: Props) => {
   const modalRef = React.createRef<HTMLDivElement>()
+  const modalBodyRef = React.createRef<HTMLDivElement>()
+  const pointerClass = "pointer-events-auto"
+  const transitionClass = ['translate-y-96', 'scale-50', 'opacity-0']
+  const sizeClass = {
+    full: 'w-full h-full',
+    small: 'w-[500px] h-[400px]',
+  } as const
 
   const handleClose = () => {
     const el = modalRef.current
-    if (!el) {
+    const body = modalBodyRef.current
+    if (!el || !body) {
       props.onClose()
       return
     }
-    el.classList.add('scale-90', 'opacity-0', 'pointer-events-none')
+    el.classList.add(...transitionClass)
+    body.classList.remove(pointerClass)
     const timeout = setTimeout(() => {
       props.onClose()
     }, 200)
@@ -24,11 +35,14 @@ export const Modal = (props: Props) => {
   React.useEffect(() => {
     const timeout = setTimeout(() => {
       const el = modalRef.current
-      if (!el) return
+      const body = modalBodyRef.current
+      if (!el || !body) return
       if (props.isOpen) {
-        el.classList.remove('scale-90', 'opacity-0', 'pointer-events-none')
+        el.classList.remove(...transitionClass)
+        body.classList.add(pointerClass)
       } else {
-        el.classList.add('scale-90', 'opacity-0', 'pointer-events-none')
+        el.classList.add(...transitionClass)
+        body.classList.remove(pointerClass)
       }
     }, 100)
     return () => clearTimeout(timeout)
@@ -37,11 +51,16 @@ export const Modal = (props: Props) => {
   return (
     <div
       ref={modalRef}
-      className={`fixed top-0 left-0 z-50 w-screen h-d-screen bg-black transition-all border border- border-secondary rounded-md scale-90 opacity-0 pointer-events-none ${
-        !props.isOpen && 'hidden'
+      className={`fixed top-0 left-0 z-50 w-screen max-w-[100vw] h-d-screen max-h-[100dvh] transition-all translate-y-96 scale-50 opacity-0 pointer-events-none ${
+        !props.isOpen ? 'hidden' : 'flex items-center justify-center'
       }`}
     >
-      <div className="relative w-full h-full p-14">
+      <div
+        ref={modalBodyRef}
+        className={`relative max-w-full max-h-full p-14 bg-black border border-secondary rounded-md pointer-events-auto ${
+          sizeClass[props.size || 'full']
+        }`}
+      >
         <svg
           className="absolute top-5 right-5 cursor-pointer"
           viewBox="0 0 32 32"
@@ -59,7 +78,9 @@ export const Modal = (props: Props) => {
             <rect fill="none" height="32" width="32" />
           </g>
         </svg>
-        {props.isOpen && <div className="w-full h-full overflow-scroll">{props.children}</div>}
+        {props.isOpen && (
+          <div className="w-full h-full overflow-scroll">{props.children}</div>
+        )}
       </div>
     </div>
   )

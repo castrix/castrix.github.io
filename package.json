@@ -9,12 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "editorjs-text-color-plugin": "^2.0.2",
+    "@types/react-copy-to-clipboard": "^5.0.4",
     "react": "^18.2.0",
-    "react-blurhash": "^0.3.0",
+    "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^18.2.0",
     "react-inline-suggest": "^1.0.0",
-    "react-svg": "^16.1.7",
     "react-toastify": "^9.1.2",
     "react-tsparticles": "^2.9.3",
     "react-type-animation": "^3.0.1",

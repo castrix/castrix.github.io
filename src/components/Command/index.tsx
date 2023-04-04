@@ -1,13 +1,17 @@
 import React from 'react'
 import { InlineSuggest } from 'react-inline-suggest'
 import { toast } from 'react-toastify'
-import { CV_URL, menus } from '../Nav/constants'
+import { menus } from '../Nav/constants'
 import { scrollToView } from '../../utils/scroll'
 import { openURL } from '../../utils/url'
 import { focusToCommand } from '../../utils/input'
+import { useContactMe } from '../ContactMe'
+import { CV_URL } from '../../constants'
 
 export const Command = () => {
   const [commandValue, setCommandValue] = React.useState('')
+
+  const [toggleContact, ContactMe] = useContactMe()
 
   const handleCommand = (e: React.FormEvent<HTMLInputElement>) => {
     setCommandValue(e.currentTarget.value)
@@ -23,6 +27,9 @@ export const Command = () => {
       case 'getCV()':
         openURL(CV_URL)
         break
+      case 'contactMe()':
+        toggleContact()
+        break;
       default:
         menus.find((menu) => menu.label === e)?.action()
     }
@@ -66,7 +73,7 @@ export const Command = () => {
   }, [])
 
   return (
-    <div className="fixed z-10 bottom-0 left-0 w-screen bg-black py-2 px-5">
+    <div id='command' className="fixed z-10 bottom-0 left-0 w-screen bg-black py-2 px-5">
       <div className="relative flex gap-2 w-full items-center text-xl">
         <span>$</span>
         <InlineSuggest
@@ -89,6 +96,7 @@ export const Command = () => {
           ))}
         </div>
       </div>
+      <ContactMe />
     </div>
   )
 }

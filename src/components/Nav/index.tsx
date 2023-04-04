@@ -1,11 +1,14 @@
 import React from 'react'
 import { scrollToView, useWindowScroll } from '../../utils/scroll'
 import { TypeAnimation } from 'react-type-animation'
-import { CV_URL, menus } from './constants'
+import { menus } from './constants'
 import { openURL } from '../../utils/url'
+import { useContactMe } from '../ContactMe'
+import { CV_URL } from '../../constants'
 
 export const Nav = () => {
   const [scrollY] = useWindowScroll()
+  const [toggleContact, ContactMe] = useContactMe()
 
   return (
     <nav
@@ -35,7 +38,7 @@ export const Nav = () => {
               <span
                 key={menu?.label}
                 className="cursor-pointer hover:underline pointer-events-auto w-fit clickable"
-                onClick={() => menu?.action()}
+                onClick={() => menu?.label === menus[2].label ? toggleContact() : menu?.action()}
               >
                 <TypeAnimation
                   sequence={[!isGetCv ? index * 600 : 0, menu?.label || '']}
@@ -46,6 +49,7 @@ export const Nav = () => {
             )
           })}
       </div>
+      <ContactMe />
     </nav>
   )
 }

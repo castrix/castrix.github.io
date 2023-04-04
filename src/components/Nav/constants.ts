@@ -18,6 +18,4 @@ export const menus = [
     target: '#contactMe',
     action: () => toast.warning('"contactMe()" is in progress')
   },
-]
-
-export const CV_URL = "https://docs.google.com/document/d/1WKayGDe8uuSrcC3yx1zQ2EgY3svRJ6ZLPRfJ6jTqgo8/edit?usp=sharing"
+] as const

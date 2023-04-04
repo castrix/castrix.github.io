@@ -1,3 +1,5 @@
 export const focusToCommand = () => {
-  document.getElementsByTagName('input')[0].focus()
+  const command = document.getElementById('command')
+  if (!command) return;
+  command.getElementsByTagName('input')[0].focus()
 }

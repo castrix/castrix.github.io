@@ -8,13 +8,8 @@ import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from 'react-vertical-timeline-component'
-import { timeline } from './constants'
+import { aboutGreetings, aboutMessages, aboutSections, timeline } from '../../constants'
 
-const Sections = {
-  background: 'Background',
-  interest: 'Interest',
-  career: 'Career',
-} as const
 export const About = () => {
   const [selectedSection, setSelectedSection] = useState('')
 
@@ -26,13 +21,9 @@ export const About = () => {
       <div className="w-1/2">
         <AbouIllustration />
       </div>
-      <div className="w-1/2 pr-28 z-10">
+      <div className="w-1/2 pr-28 z-10 pointer-events-none">
         <TypeAnimation
-          sequence={[
-            'Hi there!\nHere you can find about my background.',
-            'Hi there!\nHere you can find about my interest.',
-            'Hi there!\nHere you can find about my career progression.',
-          ]}
+          sequence={aboutGreetings}
           speed={8}
           repeat={Infinity}
           className="text-3xl whitespace-pre-line"
@@ -40,38 +31,34 @@ export const About = () => {
         <div className="flex gap-10 mt-10">
           <IFButton
             color="green"
-            onClick={() => setSelectedSection(Sections.background)}
+            onClick={() => setSelectedSection(aboutSections.background)}
           >
-            {Sections.background}
+            {aboutSections.background}
           </IFButton>
           <IFButton
             color="yellow"
-            onClick={() => setSelectedSection(Sections.interest)}
+            onClick={() => setSelectedSection(aboutSections.interest)}
           >
-            {Sections.interest}
+            {aboutSections.interest}
           </IFButton>
           <IFButton
             color="blue"
-            onClick={() => setSelectedSection(Sections.career)}
+            onClick={() => setSelectedSection(aboutSections.career)}
           >
-            {Sections.career}
+            {aboutSections.career}
           </IFButton>
         </div>
         <div className="flex mt-10 w-full text-base">
-          {selectedSection === Sections.background && (
+          {selectedSection === aboutSections.background && (
             <TypeAnimation
-              sequence={[
-                "Hi, nice to meet you! I'm from Indonesia, I like to travel and try to feel different kinds of atmosphere in different cities. I have Engineering degree (Bachelor of Applied Engineering from STTN-BATAN Yogyakarta). I specialized in Frontend Engineer, I've been involved in many different kinds of projects, I also have experience in mentoring.",
-              ]}
+              sequence={aboutMessages[aboutSections.background]}
               speed={70}
               className="text-justify"
             />
           )}
-          {selectedSection === Sections.interest && (
+          {selectedSection === aboutSections.interest && (
             <TypeAnimation
-              sequence={[
-                "Wow! Thank you for being curious! Mostly my interest lies in tech! Either it was gadget, new frameworks, or news about frameworks updates. I also have interest in crypto and AI, I always had a wish to contribute to the technology (in my speciality), so that's currently my goal. I also love to listen to music, sometimes I play games, and sometimes I do small projects like this portofolio.",
-              ]}
+              sequence={aboutMessages[aboutSections.interest]}
               speed={70}
               className="text-justify"
             />
@@ -79,7 +66,7 @@ export const About = () => {
         </div>
       </div>
       <Modal
-        isOpen={selectedSection === Sections.career}
+        isOpen={selectedSection === aboutSections.career}
         onClose={() => setSelectedSection('')}
       >
         <div className="w-full text-center">

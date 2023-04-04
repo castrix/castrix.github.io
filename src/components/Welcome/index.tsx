@@ -1,10 +1,15 @@
 import React from 'react'
 import { TypeAnimation } from 'react-type-animation'
 import myPhoto from '../../assets/myPhoto.PNG'
-import photoOverlay from '../../assets/photoOverlay.svg'
 import './index.css'
-import { ReactSVG } from 'react-svg'
-import { CV_URL } from '../Nav/constants'
+import {
+  CV_URL,
+  welcomeCV,
+  welcomeCall,
+  welcomeConsole,
+  welcomeCopyright,
+  welcomeHover,
+} from '../../constants'
 
 export const Welcome = () => {
   const ref = React.createRef<HTMLSpanElement>()
@@ -48,81 +53,39 @@ export const Welcome = () => {
     >
       <div className="flex flex-wrap w-1/2 gap-5 pl-9 text-xl">
         <TypeAnimation
-          sequence={[
-            `/* \n* Copyright (c) 2023 Ihsan Fajar Ramadhan. All Rights Reserved \n* This is licensed software from (castrix.github.io), for limitations \n* and restrictions contact your company contract manager.  \n*/ \n`,
-          ]}
+          sequence={[welcomeCopyright]}
           speed={99}
           className="text-vue whitespace-pre-line w-full"
           cursor={false}
         />
         <div className="w-full flex">
-          <TypeAnimation
-            sequence={[2000 + 500, 'console']}
-            speed={99}
-            className="text-variable whitespace-pre-line"
-            cursor={false}
-          />
-          <TypeAnimation
-            sequence={[2200 + 500, '.log(']}
-            speed={99}
-            className="text-function whitespace-pre-line"
-            cursor={false}
-          />
-          <TypeAnimation
-            sequence={[2400 + 500, '“Welcome to:”']}
-            speed={99}
-            className="text-string whitespace-pre-line"
-            cursor={false}
-          />
-          <TypeAnimation
-            sequence={[2600 + 500, ')']}
-            speed={99}
-            className="text-function whitespace-pre-line"
-            cursor={false}
-          />
-          <TypeAnimation
-            sequence={[2700 + 500, '// Welcome to:']}
-            speed={99}
-            className="text-secondary whitespace-pre-line ml-3"
-            cursor={false}
-          />
+          {welcomeConsole.map((message, index) => (
+            <TypeAnimation
+              key={index}
+              sequence={message.sequence}
+              speed={99}
+              className={message.className}
+              cursor={false}
+            />
+          ))}
         </div>
         <div className="w-full flex">
-          <TypeAnimation
-            sequence={[2900 + 500, 'myPortofolio(']}
-            speed={99}
-            className="text-function whitespace-pre-line"
-            cursor={false}
-          />
-          <TypeAnimation
-            sequence={[3100 + 500, 'ihsanFajarRamadhan']}
-            speed={99}
-            className="text-variable whitespace-pre-line"
-            cursor={false}
-          />
-          <TypeAnimation
-            sequence={[3300 + 500, ')']}
-            speed={99}
-            className="text-function whitespace-pre-line"
-            cursor={false}
-          />
-          <TypeAnimation
-            sequence={[3400 + 500, '// { name: “Ihsan Fajar Ramadhan”, ... }']}
-            speed={99}
-            className="text-secondary whitespace-pre-line ml-3"
-            cursor={false}
-          />
+          {welcomeCall.map((message, index) => (
+            <TypeAnimation
+              key={index}
+              sequence={message.sequence}
+              speed={99}
+              className={message.className}
+              cursor={false}
+            />
+          ))}
         </div>
         <TypeAnimation
           ref={ref}
-          sequence={[
-            () => showCursorAnimation(false),
-            3600 + 500,
-            () => showCursorAnimation(true),
-            `// Hover my silhouette to render the picture`,
-          ]}
+          sequence={[3600 + 500, welcomeHover]}
           speed={99}
-          className={`text-vue whitespace-pre-line w-full ${CURSOR_CLASS_NAME}`}
+          className={`text-vue whitespace-pre-line w-full`}
+          cursor={false}
         />
         <a
           href={CV_URL}
@@ -135,14 +98,14 @@ export const Welcome = () => {
               () => showCursorAnimation(false),
               3800 + 500,
               () => showCursorAnimation(true),
-              `// Click here to get the CV!`,
+              welcomeCV,
             ]}
             speed={99}
             className={`whitespace-pre-line w-full ${CURSOR_CLASS_NAME}`}
           />
         </a>
       </div>
-      <div className='relative h-d-screen portrait'>
+      <div className="relative h-d-screen portrait">
         <span
           className="opacity-10 text-black absolute top-0 font-extrabold nickname"
           style={{ fontSize: '400px' }}

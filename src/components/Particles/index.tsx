@@ -22,7 +22,7 @@ export const IFParticles = () => {
   )
 
   return (
-    <div className="absolute top-0 left-0 w-screen h-d-screen">
+    <div className="fixed top-0 left-0 w-screen h-d-screen">
       <Particles
         id="tsparticles"
         init={particlesInit}

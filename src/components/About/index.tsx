@@ -26,7 +26,7 @@ export const About = () => {
       <div className="w-1/2">
         <AbouIllustration />
       </div>
-      <div className="w-1/2 pr-28">
+      <div className="w-1/2 pr-28 z-10">
         <TypeAnimation
           sequence={[
             'Hi there!\nHere you can find about my background.',

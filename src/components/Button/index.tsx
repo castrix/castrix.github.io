@@ -8,12 +8,19 @@ interface Props {
 
 export const IFButton: React.FC<Props> = (props) => {
   const colors = {
-    blue: 'bg-blue-500 hover:bg-blue-400 border-blue-700 hover:border-blue-500',
-    yellow: 'bg-yellow-500 hover:bg-yellow-400 border-yellow-700 hover:border-yellow-500',
-    green: 'bg-green-500 hover:bg-green-400 border-green-700 hover:border-green-500',
+    blue: 'bg-none hover:bg-blue-500 border-white hover:border-blue-700',
+    yellow:
+      'bg-none hover:bg-yellow-500 border-white hover:border-yellow-700',
+    green:
+      'bg-none hover:bg-green-500 border-white hover:border-green-700',
   }
   return (
-    <button onClick={props.onClick} className={`outline-none text-white font-bold py-2 px-4 border-b-4 rounded transition-all focus:border-0 ${colors[props.color]}`}>
+    <button
+      onClick={props.onClick}
+      className={`min-w-[128px] text-center outline-none text-white font-bold py-2 px-4 border border-b-4 rounded transition-all focus:border-0 ${
+        colors[props.color]
+      }`}
+    >
       {props.children}
     </button>
   )

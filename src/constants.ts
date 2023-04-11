@@ -2,6 +2,7 @@ import instagram from "@assets/instagram.png"
 import ss1 from "@assets/ss1.png"
 import ss2 from "@assets/ss2.png"
 import ss3 from "@assets/ss3.png"
+import ss4 from "@assets/ss4.png"
 
 // welcome
 export const welcomeCopyright = `/* \n* Copyright (c) ${new Date().getFullYear()} Ihsan Fajar Ramadhan. All Rights Reserved \n* This is licensed software from (castrix.github.io), for limitations \n* and restrictions contact your company contract manager.  \n*/ \n`
@@ -172,7 +173,7 @@ export const projects = [
     ],
   },
   {
-    screenshot: "",
+    screenshot: ss4,
     title: "Product: Aktiva",
     subTitle: "PT. SDK Indonesia",
     description: "Point of Sales accounting APP. I rewrote the website app from html/css/js to modern JS framework.",

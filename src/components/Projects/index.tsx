@@ -19,9 +19,6 @@ export const Projects = () => {
     >
       {isVisible && (
         <>
-          <div className="w-1/3 text-3xl flex items-center justify-center">
-            <span>PROJECTS</span>
-          </div>
           <div className="w-2/3 border-x border-white">
             <Splide
               options={{
@@ -45,6 +42,9 @@ export const Projects = () => {
                 </SplideSlide>
               ))}
             </Splide>
+          </div>
+          <div className="w-1/3 text-3xl flex items-center justify-center">
+            <span>PROJECTS</span>
           </div>
         </>
       )}

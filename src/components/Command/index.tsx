@@ -20,6 +20,7 @@ export const Command = () => {
   const handleMatch = (e: string) => {
     toast.success(`Command executed: ${JSON.stringify(e)}`)
     setCommandValue('')
+    const action = menus.find((menu) => menu.label === e)?.action
     switch (e) {
       case 'top()':
         window.scrollTo({ behavior: 'smooth', top: 0, left: 0 })
@@ -31,7 +32,7 @@ export const Command = () => {
         toggleContact()
         break;
       default:
-        menus.find((menu) => menu.label === e)?.action()
+        action && action()
     }
   }
 

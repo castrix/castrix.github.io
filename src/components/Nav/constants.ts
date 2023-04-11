@@ -11,11 +11,11 @@ export const menus = [
   {
     label: 'projects()',
     target: '#projects',
-    action: () => toast.warning('"projects()" is in progress')
+    action: () => { focusToCommand(); scrollToView('#projects') }
   },
   {
     label: 'contactMe()',
     target: '#contactMe',
-    action: () => toast.warning('"contactMe()" is in progress')
+    action: null
   },
 ] as const

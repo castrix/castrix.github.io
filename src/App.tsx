@@ -7,6 +7,7 @@ import { Welcome } from './components/Welcome'
 import { About } from './components/About'
 import 'react-vertical-timeline-component/style.min.css'
 import { useEffect, useState } from 'react'
+import { Projects } from './components/Projects'
 
 function App() {
   const VISIT_NAME = "number_of_visit"
@@ -33,6 +34,7 @@ function App() {
       <Welcome />
       <About />
       <Command />
+      <Projects />
       <ToastContainer
         position="bottom-center"
         theme="dark"

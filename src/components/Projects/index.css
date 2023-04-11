@@ -1,0 +1,23 @@
+.projects .splide__slide .card {
+  @apply transition-all;
+}
+
+.projects .splide__slide.is-active .card {
+  @apply scale-110;
+  transition-delay: 300ms;
+}
+
+.projects .splide__track {
+  height: 80vh;
+  padding-top: 5vh;
+}
+
+.projects .splide__pagination__page {
+  border: 1px white solid;
+  width: 50px;
+  @apply bg-transparent rounded-md mx-2;
+}
+
+.projects .splide__pagination__page.is-active {
+  @apply bg-white border border-black;
+}

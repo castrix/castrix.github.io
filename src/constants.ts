@@ -1,4 +1,7 @@
-import instagram from "./assets/instagram.png"
+import instagram from "@assets/instagram.png"
+import ss1 from "@assets/ss1.png"
+import ss2 from "@assets/ss2.png"
+import ss3 from "@assets/ss3.png"
 
 // welcome
 export const welcomeCopyright = `/* \n* Copyright (c) ${new Date().getFullYear()} Ihsan Fajar Ramadhan. All Rights Reserved \n* This is licensed software from (castrix.github.io), for limitations \n* and restrictions contact your company contract manager.  \n*/ \n`
@@ -82,7 +85,7 @@ export const timeline = [
     position: 'Frontend Engineer (SAAS), Mentoring',
     location: 'Refactory. Indonesia',
     description:
-      'New responsibility to mentor new hires. Most of them are fresh graduates with goal to be groomed as engineer. I mentored 3 students for months while I was working on my developer works as well.',
+      'New responsibility: lead a project and mentor new hires. Most of the new hires are fresh graduates with goal to be groomed as engineer. I mentored 3 students for months while I was working on my developer works as well.',
     icon: 'https://refactory.id/android-icon-192x192.png',
   },
   {
@@ -126,5 +129,58 @@ export const socials = [
     name: "instagram",
     value: "https://www.instagram.com/ihsanfr0/",
     icon: instagram
+  },
+]
+
+export type Hyperlinks = {label: string, url: string}[];
+
+export const projects = [
+  {
+    screenshot: ss1,
+    title: "Product: AccelByte",
+    subTitle: "Accelbyte INC",
+    description: "AccelByte is a game backend platform that supports cross-platform, storage, monetization, social, matchmaking, and more. The scope that I work are Admin Dashboard, Player Portal and client customization features.",
+    hyperlinks: [
+      {
+        label: "accelbyte.io",
+        url: "https://accelbyte.io/"
+      }
+    ]
+  },
+  {
+    screenshot: ss2,
+    title: "Product: Lion Parcel Core",
+    subTitle: "Lion Parcel",
+    description: "Lion Parcel Indonesian logistic provider. I collaborated with Lion Parcel team to develop their Core System from early development until MVP and released to public nationwide.",
+    hyperlinks: [
+      {
+        label: "lionparce.com",
+        url: "https://lionparcel.com/"
+      }
+    ]
+  },
+  {
+    screenshot: ss3,
+    title: "Product: Sidig.id",
+    subTitle: "Gamatechno",
+    description: "Sidig is All-in-one distributor platform to optimize chain supply and after sales management. I took a role as Frontend Lead to rewrite the Sidig.id webiste from pure html/jquery/css to modern JS framework JS framework.",
+    hyperlinks: [
+      {
+        label: "sidig.id",
+        url: "https://sidig.id/"
+      },
+    ],
+  },
+  {
+    screenshot: "",
+    title: "Product: Aktiva",
+    subTitle: "PT. SDK Indonesia",
+    description: "Point of Sales accounting APP. I rewrote the website app from html/css/js to modern JS framework.",
+    hyperlinks: [
+      {
+        label: "Aktiva",
+        url: "https://www.sdkindonesia.co.id/work/berkat-pos"
+      },
+    ],
   },
 ]

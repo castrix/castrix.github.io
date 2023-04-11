@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { TypeAnimation } from 'react-type-animation'
 import { menus } from '../Nav/constants'
 import { AbouIllustration } from '../Illustration'
@@ -8,63 +8,78 @@ import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from 'react-vertical-timeline-component'
-import { aboutGreetings, aboutMessages, aboutSections, timeline } from '../../constants'
+import {
+  aboutGreetings,
+  aboutMessages,
+  aboutSections,
+  timeline,
+} from '../../constants'
+import { useIntersectionObserver } from '@/utils/hooks'
 
 export const About = () => {
+  const pageRef = useRef<HTMLElement | null>(null)
+  const entry = useIntersectionObserver(pageRef, {})
+  const isVisible = !!entry?.isIntersecting
   const [selectedSection, setSelectedSection] = useState('')
+  console.log(isVisible)
 
   return (
     <section
       id={menus[0].target}
-      className="w-full h-d-screen bg-black flex items-center flex-wrap"
+      ref={pageRef}
+      className="w-full h-d-screen bg-black flex items-center flex-wrap border-b border-white"
     >
-      <div className="w-1/2">
-        <AbouIllustration />
-      </div>
-      <div className="w-1/2 pr-28 z-10 pointer-events-none">
-        <TypeAnimation
-          sequence={aboutGreetings}
-          speed={8}
-          repeat={Infinity}
-          className="text-3xl whitespace-pre-line"
-        />
-        <div className="flex gap-10 mt-10">
-          <IFButton
-            color="green"
-            onClick={() => setSelectedSection(aboutSections.background)}
-          >
-            {aboutSections.background}
-          </IFButton>
-          <IFButton
-            color="yellow"
-            onClick={() => setSelectedSection(aboutSections.interest)}
-          >
-            {aboutSections.interest}
-          </IFButton>
-          <IFButton
-            color="blue"
-            onClick={() => setSelectedSection(aboutSections.career)}
-          >
-            {aboutSections.career}
-          </IFButton>
-        </div>
-        <div className="flex mt-10 w-full text-base">
-          {selectedSection === aboutSections.background && (
+      {isVisible && (
+        <>
+          <div className="w-1/2">
+            <AbouIllustration />
+          </div>
+          <div className="w-1/2 pr-28 z-10 pointer-events-none">
             <TypeAnimation
-              sequence={aboutMessages[aboutSections.background]}
-              speed={70}
-              className="text-justify"
+              sequence={aboutGreetings}
+              speed={8}
+              repeat={Infinity}
+              className="text-3xl whitespace-pre-line"
             />
-          )}
-          {selectedSection === aboutSections.interest && (
-            <TypeAnimation
-              sequence={aboutMessages[aboutSections.interest]}
-              speed={70}
-              className="text-justify"
-            />
-          )}
-        </div>
-      </div>
+            <div className="flex gap-10 mt-10">
+              <IFButton
+                color="green"
+                onClick={() => setSelectedSection(aboutSections.background)}
+              >
+                {aboutSections.background}
+              </IFButton>
+              <IFButton
+                color="yellow"
+                onClick={() => setSelectedSection(aboutSections.interest)}
+              >
+                {aboutSections.interest}
+              </IFButton>
+              <IFButton
+                color="blue"
+                onClick={() => setSelectedSection(aboutSections.career)}
+              >
+                {aboutSections.career}
+              </IFButton>
+            </div>
+            <div className="flex mt-10 w-full text-base">
+              {selectedSection === aboutSections.background && (
+                <TypeAnimation
+                  sequence={aboutMessages[aboutSections.background]}
+                  speed={70}
+                  className="text-justify"
+                />
+              )}
+              {selectedSection === aboutSections.interest && (
+                <TypeAnimation
+                  sequence={aboutMessages[aboutSections.interest]}
+                  speed={70}
+                  className="text-justify"
+                />
+              )}
+            </div>
+          </div>
+        </>
+      )}
       <Modal
         isOpen={selectedSection === aboutSections.career}
         onClose={() => setSelectedSection('')}
@@ -79,7 +94,10 @@ export const About = () => {
             <VerticalTimelineElement
               key={index}
               className="vertical-timeline-element--work"
-              contentStyle={{ background: index === 0 ? '#182930' : '#454545', color: '#fff' }}
+              contentStyle={{
+                background: index === 0 ? '#182930' : '#454545',
+                color: '#fff',
+              }}
               contentArrowStyle={{
                 borderRight: `7px solid ${index === 0 ? '#182930' : '#454545'}`,
               }}

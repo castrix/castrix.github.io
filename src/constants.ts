@@ -151,7 +151,7 @@ export const projects = [
     screenshot: ss2,
     title: "Product: Lion Parcel Core",
     subTitle: "Lion Parcel",
-    description: "Lion Parcel Indonesian logistic provider. I collaborated with Lion Parcel team to develop their Core System from early development until MVP and released to public nationwide.",
+    description: "Lion Parcel is Indonesian logistic provider. I collaborated with Lion Parcel team to develop their Core System from early development until MVP and released to public nationwide.",
     hyperlinks: [
       {
         label: "lionparce.com",

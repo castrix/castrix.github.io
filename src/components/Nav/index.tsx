@@ -38,7 +38,7 @@ export const Nav = () => {
               <span
                 key={menu?.label}
                 className="cursor-pointer hover:underline pointer-events-auto w-fit clickable"
-                onClick={() => menu?.label === menus[2].label ? toggleContact() : menu?.action()}
+                onClick={() => menu?.label === menus[2].label ? toggleContact() : menu?.action && menu?.action()}
               >
                 <TypeAnimation
                   sequence={[!isGetCv ? index * 600 : 0, menu?.label || '']}

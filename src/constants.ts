@@ -68,7 +68,7 @@ export const aboutMessages = {
     "Hi, nice to meet you! I'm from Indonesia, I like to travel and try to feel different kinds of atmosphere in different cities. I have Engineering degree (Bachelor of Applied Engineering from STTN-BATAN Yogyakarta). I specialized in Frontend Engineer, I've been involved in many different kinds of projects, I also have experience in mentoring.",
   ],
   [aboutSections.interest]: [
-    "Hi, nice to meet you! I'm from Indonesia, I like to travel and try to feel different kinds of atmosphere in different cities. I have Engineering degree (Bachelor of Applied Engineering from STTN-BATAN Yogyakarta). I specialized in Frontend Engineer, I've been involved in many different kinds of projects, I also have experience in mentoring.",
+    "Wow! Thank you for being curious! Mostly my interest lies in tech! Either it was gadget, new frameworks, or news about frameworks updates. I also have interest in crypto and AI, I always had a wish to contribute to the technology (in my speciality), so that's currently my goal. I also love to listen to music, sometimes I play games, and sometimes I do small projects like this portofolio.",
   ],
 }
 

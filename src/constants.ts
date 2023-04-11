@@ -176,7 +176,7 @@ export const projects = [
     screenshot: ss4,
     title: "Product: Aktiva",
     subTitle: "PT. SDK Indonesia",
-    description: "Point of Sales accounting APP. I rewrote the website app from html/css/js to modern JS framework.",
+    description: "Point of Sales accounting APP. My task is to rewrote the website app from html/css/js to modern JS framework.",
     hyperlinks: [
       {
         label: "Aktiva",
